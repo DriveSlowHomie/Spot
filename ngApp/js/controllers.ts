@@ -47,37 +47,37 @@ namespace SpotApp.Controllers {
 
 
   export class MarkPageController {
-    // public coords;
-    // public myLocation(){}
+    public coords;
+    public myLocation(){}
 
     public center = { latitude: 37.09024, longitude: -100.712891};
     public zoom = 4;
 
-    // public add() {
-    // let params = {
-    //   geolocation: this.coords.coords
-    //  // title: this.movie.title,
-    //  // genre: this.movie.genre
-    // };
-    //
-    // this.geolocationService.create(params).then((res) => {});
-    // }
-    //
+    public add() {
+    let params = {
+      geolocation: this.coords.coords
+     // title: this.movie.title,
+     // genre: this.movie.genre
+    };
+
+    this.geolocationService.create(params).then((res) => {});
+    }
+
 
     constructor(
-      // $geolocation,
-      // private geolocationService: SpotApp.Services.GeolocationService,
-      // private $state: ng.ui.IStateService
+      $geolocation,
+      private geolocationService: SpotApp.Services.GeolocationService,
+      private $state: ng.ui.IStateService
     ) {
-      // $geolocation.getCurrentPosition({
-      //   timeout: 60000
-      // }).then(function(position){
-      //   this.coords = {
-      //     lat: parseFloat(position.coords.latitude),
-      //     lng: parseFloat(position.coords.latitude)
-      //   }
-      //   console.log(this.coords);
-      // })
+      $geolocation.getCurrentPosition({
+        timeout: 60000
+      }).then(function(position){
+        this.coords = {
+          lat: parseFloat(position.coords.latitude),
+          lng: parseFloat(position.coords.latitude)
+        }
+        console.log(this.coords);
+      })
 
     }
   }
