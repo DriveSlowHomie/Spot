@@ -1,0 +1,31 @@
+"use strict";
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
+var Geocoord = mongoose.model('Geocoord', {
+    longitude: Number,
+    latitude: Number,
+    date_created: Date,
+    date_deleted: {
+        type: Date,
+        default: null
+    }
+});
+router.post('/geolocation', function (req, res, next) {
+    var geo_coords = new Geocoord({
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        date_created: new Date()
+    });
+    geo_coords.save(function (err, res) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log(res);
+        }
+    });
+    res.sendStatus(200);
+});
+module.exports = router;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2VvbG9jYXRpb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJnZW9sb2NhdGlvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsSUFBSSxPQUFPLEdBQUcsT0FBTyxDQUFDLFNBQVMsQ0FBQyxDQUFDO0FBQ2pDLElBQUksTUFBTSxHQUFHLE9BQU8sQ0FBQyxNQUFNLEVBQUUsQ0FBQztBQUM5QixJQUFJLFFBQVEsR0FBRyxPQUFPLENBQUMsVUFBVSxDQUFDLENBQUM7QUFHbkMsSUFBSSxRQUFRLEdBQUcsUUFBUSxDQUFDLEtBQUssQ0FBQyxVQUFVLEVBQUU7SUFDeEMsU0FBUyxFQUFFLE1BQU07SUFDakIsUUFBUSxFQUFFLE1BQU07SUFDaEIsWUFBWSxFQUFFLElBQUk7SUFDbEIsWUFBWSxFQUFFO1FBQ1osSUFBSSxFQUFFLElBQUk7UUFDVixPQUFPLEVBQUUsSUFBSTtLQUNkO0NBQ0YsQ0FBQyxDQUFBO0FBRUYsTUFBTSxDQUFDLElBQUksQ0FBQyxjQUFjLEVBQUUsVUFBUyxHQUFHLEVBQUUsR0FBRyxFQUFFLElBQUk7SUFDakQsSUFBSSxVQUFVLEdBQUcsSUFBSSxRQUFRLENBQUM7UUFDNUIsU0FBUyxFQUFFLEdBQUcsQ0FBQyxJQUFJLENBQUMsU0FBUztRQUM3QixRQUFRLEVBQUUsR0FBRyxDQUFDLElBQUksQ0FBQyxRQUFRO1FBQzNCLFlBQVksRUFBRSxJQUFJLElBQUksRUFBRTtLQUN6QixDQUFDLENBQUM7SUFFSCxVQUFVLENBQUMsSUFBSSxDQUFDLFVBQUMsR0FBRyxFQUFFLEdBQUc7UUFDdkIsRUFBRSxDQUFBLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQztZQUNQLE9BQU8sQ0FBQyxHQUFHLENBQUMsR0FBRyxDQUFDLENBQUM7UUFDbkIsQ0FBQztRQUFDLElBQUksQ0FBQyxDQUFDO1lBQ04sT0FBTyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsQ0FBQztRQUNuQixDQUFDO0lBQ0gsQ0FBQyxDQUFDLENBQUE7SUFFRixHQUFHLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0FBQ3RCLENBQUMsQ0FBQyxDQUFDO0FBVUgsaUJBQVMsTUFBTSxDQUFDIn0=
