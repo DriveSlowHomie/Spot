@@ -30,7 +30,7 @@ db.once('open', () => {
 })
 
 app.use('/route', require('./routes/geolocation'));
-app.use('/api', require('./routes/user'));
+app.use('/api', require('./routes/routeUser'));
 
 app.use(express.static('./ngApp'));
 // app.use('/scripts', express.static('bower_components'));

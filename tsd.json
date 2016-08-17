@@ -6,19 +6,49 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "mpromise/mpromise.d.ts": {
-      "commit": "15db109a05436777201662f557d3f02e1e4197d2"
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
     },
     "mongoose-promise/mongoose-promise.d.ts": {
-      "commit": "15db109a05436777201662f557d3f02e1e4197d2"
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
     },
     "mongodb/mongodb.d.ts": {
-      "commit": "15db109a05436777201662f557d3f02e1e4197d2"
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
     },
     "node/node.d.ts": {
-      "commit": "15db109a05436777201662f557d3f02e1e4197d2"
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
     },
     "mongoose/mongoose.d.ts": {
-      "commit": "15db109a05436777201662f557d3f02e1e4197d2"
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "body-parser/body-parser.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "express/express.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "mime/mime.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "express-jwt/express-jwt.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "express-serve-static-core/express-serve-static-core.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "express-unless/express-unless.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "jsonwebtoken/jsonwebtoken.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "passport/passport.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
+    },
+    "passport-local/passport-local.d.ts": {
+      "commit": "9b94d577a8d15f2a56701a0df46b447a7535baf6"
     }
   }
 }

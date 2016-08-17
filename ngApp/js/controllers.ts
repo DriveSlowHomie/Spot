@@ -56,8 +56,8 @@ namespace SpotApp.Controllers {
     public coords;
     public myLocation(){}
 
-    public center = { latitude: 37.09024, longitude: -100.712891};
-    public zoom = 4;
+    public center = { latitude: 45.513913, longitude: -122.667031};
+    public zoom = 14;
 
     public add() {
     let params = {
@@ -67,9 +67,16 @@ namespace SpotApp.Controllers {
     this.geolocationService.create(params).then((res) => {});
     }
 
+    public loadCoords(IsReady) {
+      this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
+      this.zoom = 14;
+      IsReady.promise.then();
+    };
+
 
     constructor(
       $geolocation,
+      private uiGmapIsReady,
       private geolocationService: SpotApp.Services.GeolocationService,
       private $state: ng.ui.IStateService
     ) {
@@ -82,6 +89,8 @@ namespace SpotApp.Controllers {
           lat: parseFloat(position.coords.latitude),
           lng: parseFloat(position.coords.latitude)
         }
+        this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
+        this.zoom = 14;
         console.log(this.coords);
       })
 
