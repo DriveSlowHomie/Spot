@@ -1,12 +1,4 @@
-<!-- <ul>
-  <li ng-repeat="movie in vm.movies">
-    <b>title</b>: {{movie.title}}, <b>Genre</b>: {{movie.genre}}
-  </li>
-</ul>
-
-<a href="/addMovie">Add Movie</a> -->
-
-
+<!-- Navbar for home page -->
 <nav class="navbar purple darken-3">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo"><img style="max-width:100px; margin-top: 7px;" src="images/logo2.png" /></a>
@@ -33,33 +25,20 @@
     </div>
 </nav>
 
-<!-- <div class="section white">
-</div>
-</div>
-<div class="parallax-container">
-   <div class="parallax"><img src="images/studyspot.jpg"></div>
- </div>
- <div class="section white">
-   <div class="row container">
-     <h2 class="header">Parallax</h2>
-     <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-   </div>
- </div>
- <div class="parallax-container">
-   <div class="parallax"><img src="images/smokespot.jpg"></div>
- </div> -->
 
-
+<!-- Section of white space to seperate navbar and parallax glitch -->
 <div class="section purple lighten-3"></div>
 
-
+<!-- First parallax image with title and login -->
 <div class="parallax-container">
   <div class="parallax">
     <img src="images/studyspot.jpg">
   </div>
 
+    <!-- Title logo -->
     <img class="displayed" src="images/logo2.png"/>
 
+      <!-- Slogon -->
       <h4 class="motto" align="center" style="color:white;">
         Mark. Explore. Hit.
       </h4>
@@ -69,7 +48,10 @@
                 Login
             </h5>
 
-              <form ng-submit="vm.login()">
+            <div>
+
+              <!-- Login form -->
+              <form>
                 <div>
                   <label>Email</label>
                   <input ng-model="vm.user.email">
@@ -81,26 +63,16 @@
                 <button>Submit</button>
               </form>
 
+            </div>
 
-      <!-- <div class="row center">
-          <h5 style="color:white;">
-              Comming Soon! Stay Posted!
-          </h5>
+              <button ng-click="vm.showModal()">Create Account</button>
 
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input ng-model="vm.email" id="email" type="email" class="validate" placeholder="Your email here...">
-                    <button class='btn btn-success' ng-click='vm.showModal()'>Submit</button>
-                  </div>
-                </div>
-              </form> -->
             </div>
       </div>
 </div>
 
 
+<!-- White Container with feature explination -->
 <div class="section purple lighten-3">
     <div class="row container">
 
@@ -126,7 +98,7 @@
 </div>
 
 
-
+<!-- Second parallax image -->
 <div class="parallax-container">
   <div class="parallax">
     <img src="images/smokespot.jpg">
@@ -134,6 +106,7 @@
 </div>
 
 
+<!-- White space with types of spots -->
   <div class="section purple lighten-3">
       <div class="row container">
 
@@ -157,7 +130,7 @@
   </div>
 
 
-
+<!-- Third parallax image -->
 <div class="parallax-container">
   <div class="parallax">
     <img src="images/hangoutspot.jpg">

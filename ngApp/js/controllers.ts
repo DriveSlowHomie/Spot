@@ -1,29 +1,19 @@
 namespace SpotApp.Controllers {
+
+  //Home Controller: Modal and login logic
   export class HomeController {
-    public email;
-    public user;
 
-    // showModal(){
-    //   this.$uibModal.open({
-    //     templateUrl: '/templates/dialog.html',
-    //     controller: 'DialogController',
-    //     controllerAs: 'vm',
-    //     resolve: {
-    //       dataFromHomeController: () => this.email
-    //     },
-    //     size: 'sm'
-    //   });
-    // }
+    public showModal(){
+      this.$uibModal.open({
+        templateUrl: '/templates/dialog.html',
+        controller: 'DialogController',
+        controllerAs: 'vm',
+        size: 'sm'
+      });
+    };
 
-    public login(){
-          this.userService.login(this.user).then((res) => {
-            localStorage.setItem("id", res._id)
-            console.log(res);
-            this.$state.go('Home')
-          })
-        }
 
-    constructor(/*private $uibModal: angular.ui.bootstrap.IModalService*/
+    constructor(private $uibModal: angular.ui.bootstrap.IModalService,
                 private userService: SpotApp.Services.UserService,
                 private $state: ng.ui.IStateService
     ){}
@@ -33,19 +23,35 @@ namespace SpotApp.Controllers {
 
 
 
+  //DialogController: Sign up for account Modal
   class DialogController {
-    ok(){
-      this.$uibModalInstance.close();
-    }
-    constructor(public dataFromHomeController,
-       private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance){
+    public email;
+    public user;
+
+
+
+    public login(){
+          this.userService.login(this.user).then((res) => {
+            localStorage.setItem("id", res._id)
+            console.log(res);
+            this.$state.go('Home')
+            this.$uibModalInstance.close();
+          })
+        }
+
+    constructor(
+            private $uibModal: angular.ui.bootstrap.IModalService,
+            private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance,
+            private userService: SpotApp.Services.UserService,
+            private $state: ng.ui.IStateService
+        ){
     }
   }
 
   angular.module('SpotApp').controller('DialogController', DialogController);
 
 
-
+  //MarkPageController: Geoloction functions, google maps focus
   export class MarkPageController {
     public coords;
     public myLocation(){}
@@ -56,8 +62,6 @@ namespace SpotApp.Controllers {
     public add() {
     let params = {
       geolocation: this.coords.coords
-     // title: this.movie.title,
-     // genre: this.movie.genre
     };
 
     this.geolocationService.create(params).then((res) => {});
@@ -69,6 +73,8 @@ namespace SpotApp.Controllers {
       private geolocationService: SpotApp.Services.GeolocationService,
       private $state: ng.ui.IStateService
     ) {
+
+      //Geoloction function
       $geolocation.getCurrentPosition({
         timeout: 60000
       }).then(function(position){

@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+
+//User Data Model
 let User = mongoose.model('User', {
   email: String,
   password: String,
@@ -12,6 +14,7 @@ let User = mongoose.model('User', {
   }
 })
 
+//Creating user data
 router.post('/users', (req, res, next) =>{
   let new_user = new User ({
     email: req.body.email,

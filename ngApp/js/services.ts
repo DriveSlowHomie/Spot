@@ -1,9 +1,12 @@
 namespace SpotApp.Services {
+
+  //GeolocationService
   export class GeolocationService {
     public GeolocationResource;
 
-    constructor( private $resource: ng.resource.IResourceService) {
-      this.GeolocationResource = $resource('/routes/route/:id')
+    constructor(
+      private $resource: ng.resource.IResourceService) {
+      this.GeolocationResource = $resource('/api/geolocation')
     }
 
     public create(coords) {
@@ -15,12 +18,13 @@ namespace SpotApp.Services {
     }
   }
 
+
+  //UserService
   export class UserService {
     private UserResource;
 
     constructor(
-      private $resource: ng.resource.IResourceService
-    ){
+      private $resource: ng.resource.IResourceService) {
       this.UserResource = $resource('/api/users')
     }
 
