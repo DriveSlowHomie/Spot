@@ -15,10 +15,11 @@ let UserSchema:any = new mongoose.Schema(
 )
 
 UserSchema.method("setPassword", (password) => {
-  console.log(`oh this is the pass: ${password}`)
-  this.salt = crypto.randomBytes(16).toString('hex')
-  this.passwordHash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
-  console.log(`this is the passwordhash: ${this.passwordHash}`)
+  let temp = {passwordHash:null, salt:null};
+  temp.salt = crypto.randomBytes(16).toString('hex')
+  temp.passwordHash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+  // console.log(`this is the hashed password ${temp.passwordHash}`)
+  return temp;
 });
 
 UserSchema.method('validatePassword', function(password) {

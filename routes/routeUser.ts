@@ -37,7 +37,10 @@ let User = require('../models/modelUser')
 router.post('/users', function(req, res, next) {
     var user:any = new User();
     user.email = req.body.email;
-    user.setPassword(req.body.password);
+    let setPassword = user.setPassword(req.body.password);
+    user.passwordHash = setPassword.passwordHash;
+    user.salt = setPassword.salt;
+    console.log(`???????????????? ${user}`)
     user.save(function(err, user) {
         if(err) return next(err);
         res.send("Registration Complete. Please login.");
