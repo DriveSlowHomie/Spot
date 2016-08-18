@@ -34,8 +34,8 @@ let User = require('../models/modelUser')
 //   })
 // })
 
-router.post('/users', function(req, res, next) {
-    var user:any = new User();
+router.post('/register', function(req, res, next) {
+    let user:any = new User();
     user.email = req.body.email;
     let setPassword = user.setPassword(req.body.password);
     user.passwordHash = setPassword.passwordHash;
@@ -47,8 +47,16 @@ router.post('/users', function(req, res, next) {
     });
 });
 
-router.post('/users', (req, res, next ) => {
-  console.log(req.body);
+router.post('/login', (req, res, next ) => {
+  console.log("this is before the if statement")
+  if(!req.body.email || !req.body.password) return res.status(400).send("Please fill out every field");
+  console.log("this is after the if statemnet")
+  passport.authenticate('local', (err, user, info) => {
+        console.log(user);
+        if(err) return next(err);
+        if(user) return res.json({token : user.generateJWT()});
+        return res.status(400).send(info);
+    })(req, res, next);
 })
 
 export = router;

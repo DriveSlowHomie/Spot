@@ -21,16 +21,23 @@ namespace SpotApp.Services {
 
   //UserService
   export class UserService {
-    private UserResource;
+    private RegisterResource;
+    private LoginResource;
 
     constructor(
       private $resource: ng.resource.IResourceService) {
-      this.UserResource = $resource('/api/users')
+      this.RegisterResource = $resource('/api/users/register')
+      this.LoginResource = $resource('api/users/login')
+    }
+
+    public register(user){
+      return this.RegisterResource.save(user).$promise;
     }
 
     public login(user){
-      return this.UserResource.save(user).$promise;
+      return this.LoginResource.save(user).$promise;
     }
+
   }
 
 

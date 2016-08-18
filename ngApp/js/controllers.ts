@@ -2,6 +2,7 @@ namespace SpotApp.Controllers {
 
   //Home Controller: Modal and login logic
   export class HomeController {
+    public user;
 
     public showModal(){
       this.$uibModal.open({
@@ -11,6 +12,14 @@ namespace SpotApp.Controllers {
         size: 'sm'
       });
     };
+
+    public login(user){
+            this.userService.login(this.user).then((res) => {
+            localStorage.setItem("id", res._id)
+            console.log(res);
+            this.$state.go('MarkPage')
+          })
+        }
 
 
     constructor(private $uibModal: angular.ui.bootstrap.IModalService,
@@ -30,8 +39,8 @@ namespace SpotApp.Controllers {
 
 
 
-    public login(){
-          this.userService.login(this.user).then((res) => {
+    public register(){
+          this.userService.register(this.user).then((res) => {
             localStorage.setItem("id", res._id)
             console.log(res);
             this.$state.go('Home')
@@ -70,7 +79,7 @@ namespace SpotApp.Controllers {
     public loadCoords(IsReady) {
       this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
       this.zoom = 14;
-      IsReady.promise.then();
+      IsReady.promise.then
     };
 
 

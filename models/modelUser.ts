@@ -17,8 +17,8 @@ let UserSchema:any = new mongoose.Schema(
 UserSchema.method("setPassword", (password) => {
   let temp = {passwordHash:null, salt:null};
   temp.salt = crypto.randomBytes(16).toString('hex')
-  temp.passwordHash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
-  // console.log(`this is the hashed password ${temp.passwordHash}`)
+  temp.passwordHash = crypto.pbkdf2Sync(password, temp.salt, 1000, 64).toString('hex');
+  console.log(`this is the hashed password ${temp.passwordHash}`)
   return temp;
 });
 
@@ -32,7 +32,7 @@ UserSchema.method('generateJWT', function() {
    exp.setDate(today.getDate() + 36500);
    return jwt.sign({
      id: this._id,
-     username: this.username,
+     email: this.email,
      exp: exp.getTime() / 1000
    }, 'SecretKey');
 })
