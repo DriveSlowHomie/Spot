@@ -63,12 +63,28 @@ namespace SpotApp.Controllers {
   //MarkPageController: Geoloction functions, google maps focus
   export class MarkPageController {
     public coords;
-    public myLocation(){}
+    // public spot;
+    public databaseLocation;
+
+    // public showModal(){
+    //   this.$uibModal.open({
+    //     templateUrl: '/templates/markerForm.html',
+    //     controller: 'MarkPageController',
+    //     controllerAs: 'vm',
+    //     size: 'sm'
+    //   });
+    // };
 
     public center = { latitude: 45.513913, longitude: -122.667031};
     public zoom = 14;
 
     public add() {
+      // this.geolocationService.create(this.coords).then((res) => {
+      //   console.log(res);
+      //   this.$state.go('MarkPage')
+      //   this.$uibModalInstance.close();
+      // });
+
         let params = {
           geolocation: this.center
         };
@@ -76,21 +92,23 @@ namespace SpotApp.Controllers {
         this.geolocationService.create(this.center).then((res) => {});
     }
 
-    // public loadCoords(IsReady) {
-    //   this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
-    //   this.zoom = 14;
-    //   IsReady.promise.then
-    // };
-
+    public get() {
+        this.databaseLocation = this.geolocationService.getAll()
+    }
 
     constructor(
       $geolocation,
       private uiGmapIsReady,
       private geolocationService: SpotApp.Services.GeolocationService,
+      // private $uibModal: angular.ui.bootstrap.IModalService,
+      // private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance,
       private $state: ng.ui.IStateService
     ) {
 
-      //Geoloction function
+
+
+
+      // Geoloction function
       $geolocation.getCurrentPosition({
         timeout: 60000
       }).then(function(position){

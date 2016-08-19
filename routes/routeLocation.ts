@@ -28,6 +28,15 @@ router.post('/addLocation', function(req, res, next) {
    });
 
 });
+
+router.get('/geoCoords', function(req, res, next) {
+  Location.find({dateDeleted: null}).then((geoCoords)=>{
+    console.log("geoCoords from server", geoCoords)
+    res.json(geoCoords);
+  })
+});
+
+
 //
 //   geo_coords.save((err, res) => {
 //     if(err) {
