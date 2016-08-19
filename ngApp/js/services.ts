@@ -6,7 +6,7 @@ namespace SpotApp.Services {
 
     constructor(
       private $resource: ng.resource.IResourceService) {
-      this.GeolocationResource = $resource('/api/geolocation')
+      this.GeolocationResource = $resource('/api/route/addLocation')
     }
 
     public create(coords) {

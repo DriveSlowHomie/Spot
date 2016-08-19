@@ -29,7 +29,7 @@ db.once('open', () => {
   console.log('wubbalubbadubdub');
 })
 
-app.use('/route', require('./routes/geolocation'));
+app.use('/api/route', require('./routes/routeLocation'));
 app.use('/api/users', require('./routes/routeUser'));
 
 app.use(express.static('./ngApp'));

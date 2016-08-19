@@ -36,5 +36,6 @@ UserSchema.method('generateJWT', function() {
      exp: exp.getTime() / 1000
    }, 'SecretKey');
 })
+
 let User = mongoose.model("User", UserSchema);
 export = User

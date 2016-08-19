@@ -69,18 +69,18 @@ namespace SpotApp.Controllers {
     public zoom = 14;
 
     public add() {
-    let params = {
-      geolocation: this.coords.coords
-    };
+        let params = {
+          geolocation: this.center
+        };
 
-    this.geolocationService.create(params).then((res) => {});
+        this.geolocationService.create(this.center).then((res) => {});
     }
 
-    public loadCoords(IsReady) {
-      this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
-      this.zoom = 14;
-      IsReady.promise.then
-    };
+    // public loadCoords(IsReady) {
+    //   this.center = { latitude: this.coords.lat, longitude: this.coords.lng};
+    //   this.zoom = 14;
+    //   IsReady.promise.then
+    // };
 
 
     constructor(
