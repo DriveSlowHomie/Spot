@@ -63,7 +63,7 @@ namespace SpotApp.Controllers {
   //MarkPageController: Geoloction functions, google maps focus
   export class MarkPageController {
     public coords;
-    // public spot;
+    public spot;
     public databaseLocation;
 
     // public showModal(){
@@ -84,10 +84,14 @@ namespace SpotApp.Controllers {
       //   this.$state.go('MarkPage')
       //   this.$uibModalInstance.close();
       // });
-
+``
         let params = {
           geolocation: this.center
         };
+
+        this.spot = {
+          name: this.spot.name
+        }
 
         this.geolocationService.create(this.center).then((res) => {});
     }

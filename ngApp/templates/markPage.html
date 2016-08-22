@@ -2,6 +2,34 @@ Marks your map with spots you find and see spots close to you, list spots you ha
 
 <h3>My Google Maps Demo</h3>
 <ui-gmap-google-map center='vm.center' zoom='vm.zoom'>
+  <ui-gmap-markers
+            models='[{latitude: 45.513913, longitude: -122.667031}];'
+            idKey='1'
+
+            doCluster="true"
+            clusterOptions='{expression}'
+            clusterEvents='{expression}'
+            type="null"
+            typeOptions='{expression}'
+            typeEvents='{expression}'
+            fit="true"
+
+            coords="vm.center"
+            icon="'{string}'"
+            labelContent="'{string or expression}'"
+            labelAnchor="'{string}'"
+            labelClass="'{string}'"
+            click="'{string or expression to a function}'"
+            modelsbyref="true"
+
+            events="{expression}"
+
+            control='{expression}'
+            chunk='{expression}'
+            cleanchunk='{expression}'
+            doRebuildAll="{string or object}"
+            >
+    </ui-gmap-markers>
 
 </ui-gmap-google-map>
 
