@@ -27,6 +27,7 @@ UserSchema.method('validatePassword', function(password) {
      return (hash === this.passwordHash);
 });
 UserSchema.method('generateJWT', function() {
+    console.log("NOTICE ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
    let today = new Date();
    let exp = new Date(today);
    exp.setDate(today.getDate() + 36500);

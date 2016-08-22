@@ -66,14 +66,14 @@ namespace SpotApp.Controllers {
     public spot;
     public databaseLocation;
 
-    // public showModal(){
-    //   this.$uibModal.open({
-    //     templateUrl: '/templates/markerForm.html',
-    //     controller: 'MarkPageController',
-    //     controllerAs: 'vm',
-    //     size: 'sm'
-    //   });
-    // };
+    public showModal(){
+      this.$uibModal.open({
+        templateUrl: '/templates/markerForm.html',
+        controller: 'MarkPageController',
+        controllerAs: 'vm',
+        size: 'sm'
+      });
+    };
 
     public center = { latitude: 45.513913, longitude: -122.667031};
     public zoom = 14;
@@ -104,8 +104,8 @@ namespace SpotApp.Controllers {
       $geolocation,
       private uiGmapIsReady,
       private geolocationService: SpotApp.Services.GeolocationService,
-      // private $uibModal: angular.ui.bootstrap.IModalService,
-      // private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance,
+      private $uibModal: angular.ui.bootstrap.IModalService,
+      private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance,
       private $state: ng.ui.IStateService
     ) {
 

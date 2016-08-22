@@ -5,6 +5,7 @@ namespace SpotApp {
     $stateProvider: ng.ui.IStateProvider,
     $locationProvider: ng.ILocationProvider,
     $urlRouterProvider:  ng.ui.IUrlRouterProvider,
+    $httpProvider: ng.IHttpProvider,
     uiGmapGoogleMapApiProvider: any) => {
 
     uiGmapGoogleMapApiProvider.configure({
@@ -35,6 +36,6 @@ namespace SpotApp {
 
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
-
+    $httpProvider.interceptors.push('AuthInterceptor');
   });
 }
