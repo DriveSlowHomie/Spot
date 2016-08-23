@@ -6,8 +6,11 @@ let mongoose = require('mongoose');
 //Defining user schema
 let LocationSchema:any = new mongoose.Schema (
   {
+    name: String,
+    description: String,
+    discovered: String,
     longitude: Number,
-    latitude: Number,
+    latitude: { type: Number, default: 2},
     date_created: Date,
     date_deleted: {
       type: Date,
@@ -16,5 +19,5 @@ let LocationSchema:any = new mongoose.Schema (
 })
 
 
-let Location = mongoose.model("Location", LocationSchema);
+let Location = mongoose.model("Spot", LocationSchema);
 export = Location

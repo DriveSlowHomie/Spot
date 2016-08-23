@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-let Location = require('../models/modelLocation')
+let Spot = require('../models/modelLocation')
 
 //Gelocation Data Model
 // let Geocoord = mongoose.model('Geocoord', {
@@ -14,10 +14,13 @@ let Location = require('../models/modelLocation')
 //   }
 // })
 
-//Create geolaction data
-router.post('/addLocation', function(req, res, next) {
-  console.log(`RAWWWWWWWWWR ${req.body.longitude}`)
-  let geoCoords = new Location({
+//Create geolaction data and form data
+router.post('/routeLocation', function(req, res, next) {
+  console.log(`RAWWWWWWWWWR ${req.body.latitude}`)
+  let geoCoords = new Spot({
+    name: req.body.name,
+    description: req.body.description,
+    discovered: req.body.discovered,
     longitude: req.body.longitude,
     latitude: req.body.latitude,
     date_created: new Date()
@@ -29,10 +32,10 @@ router.post('/addLocation', function(req, res, next) {
 
 });
 
-router.get('/geoCoords', function(req, res, next) {
-  Location.find({dateDeleted: null}).then((geoCoords)=>{
-    console.log("geoCoords from server", geoCoords)
-    res.json(geoCoords);
+router.get('/routeLocation', function(req, res, next) {
+  Spot.find({dateDeleted: null}).then((spot)=>{
+    console.log("geoCoords from server", spot)
+    res.json(spot);
   })
 });
 
