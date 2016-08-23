@@ -69,7 +69,7 @@ router.post('/login', (req, res, next ) => {
 
         let token = user.generateJWT();
         console.log(token)
-        return res.json({token : token});
+        return res.json({token : token, email : req.body.email});
     }(req, res, next));
 })
 

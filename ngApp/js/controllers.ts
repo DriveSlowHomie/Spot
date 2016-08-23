@@ -64,16 +64,12 @@ namespace SpotApp.Controllers {
   export class MarkPageController {
     public coords;
     public spot;
+    public name;
+    public description;
+    public discovered;
     public databaseLocation;
+    public email;
 
-    // public showModal(){
-    //   this.$uibModal.open({
-    //     templateUrl: '/templates/markerForm.html',
-    //     controller: 'MarkPageController',
-    //     controllerAs: 'vm',
-    //     size: 'sm'
-    //   });
-    // };
 
     public center = { latitude: 45.513913, longitude: -122.667031};
     public zoom = 14;
@@ -82,22 +78,25 @@ namespace SpotApp.Controllers {
       // this.geolocationService.create(this.coords).then((res) => {
       //   console.log(res);
       //   this.$state.go('MarkPage')
-      //   this.$uibModalInstance.close();
       // });
-``
+
         let params = {
           geolocation: this.center
         };
 
-        this.spot = {
-          name: this.spot.name,
-          description: this.spot.description,
-          discovered: this.spot.discovered,
-          longitude: this.coords.lng,
-          latitude: this.coords.lat,
-        }
+        this.email = this.$window.localStorage.getItem('email');
 
-        this.geolocationService.create(this.center).then((res) => {});
+        this.spot = {
+          name: this.name,
+          description: this.description,
+          discovered: this.discovered,
+          longitude: this.center.longitude,
+          latitude: this.center.latitude,
+          email: this.email
+        }
+        console.log(this.spot)
+
+        this.geolocationService.create(this.spot).then((res) => {});
     }
 
     public get() {
@@ -108,9 +107,8 @@ namespace SpotApp.Controllers {
       $geolocation,
       private uiGmapIsReady,
       private geolocationService: SpotApp.Services.GeolocationService,
-      // private $uibModal: angular.ui.bootstrap.IModalService,
-      // private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance,
-      private $state: ng.ui.IStateService
+      private $state: ng.ui.IStateService,
+      private $window: ng.IWindowService
     ) {
 
 

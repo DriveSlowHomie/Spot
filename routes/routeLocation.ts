@@ -16,7 +16,7 @@ let Spot = require('../models/modelLocation')
 
 //Create geolaction data and form data
 router.post('/routeLocation', function(req, res, next) {
-  console.log(`RAWWWWWWWWWR ${req.body.latitude}`)
+  console.log(`RAWWWWWWWWWR ${req.body.discovered}`)
   let geoCoords = new Spot({
     name: req.body.name,
     description: req.body.description,

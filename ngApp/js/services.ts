@@ -11,6 +11,7 @@ namespace SpotApp.Services {
     }
 
     public create(spot) {
+      console.log(`this is from services ${spot.description}`)
       return this.GeolocationResource.save(spot).$promise;
     }
 
@@ -49,6 +50,7 @@ namespace SpotApp.Services {
     public login(user){
       return this.LoginResource.save(user).$promise.then((res) =>
       {this.setToken(res['token']);
+      this.setEmail(res['email']);
        this.setUser()});
     }
 
@@ -70,6 +72,11 @@ namespace SpotApp.Services {
     public setToken(token:string) {
       this.$window.localStorage.setItem('token', token)
     }
+
+    public setEmail(email:string) {
+      this.$window.localStorage.setItem('email', email)
+    }
+
 
     private urlBase64Decode(str) {
       let output = str.replace(/-/g, '+').replace(/_/g, '/');
