@@ -69,6 +69,10 @@ namespace SpotApp.Controllers {
     public discovered;
     public databaseLocation;
     public email;
+    
+    public logout () {
+      this.$window.localStorage.removeItem('token')
+    }
 
 
     public center = { latitude: 45.513913, longitude: -122.667031};

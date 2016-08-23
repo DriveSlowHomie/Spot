@@ -8,6 +8,7 @@ let jwt = require('jsonwebtoken');
 //Defining user schema
 let UserSchema:any = new mongoose.Schema(
   {
+    spot: [],
     email: {type:String, unique: true, lowercase: true},
     passwordHash:String,
     salt:String

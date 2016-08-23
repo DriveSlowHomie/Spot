@@ -16,7 +16,7 @@ let Spot = require('../models/modelLocation')
 
 //Create geolaction data and form data
 router.post('/routeLocation', function(req, res, next) {
-  console.log(`RAWWWWWWWWWR ${req.body.discovered}`)
+  console.log(`RAWWWWWWWWWR ${req.body.email}`)
   let geoCoords = new Spot({
     name: req.body.name,
     description: req.body.description,
@@ -25,6 +25,13 @@ router.post('/routeLocation', function(req, res, next) {
     latitude: req.body.latitude,
     date_created: new Date()
   });
+
+  User.find({email: req.body.email})
+  .then((user) => {
+    console.log(user)
+    // user.spot.push(geoCoords)
+  })
+
   geoCoords.save(function(err, location) {
        if(err) return next(err);
        res.send("This location has been added");

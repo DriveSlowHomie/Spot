@@ -54,9 +54,6 @@ namespace SpotApp.Services {
        this.setUser()});
     }
 
-    public logout () {
-      this.$window.localStorage.removeItem('token')
-    }
 
     public setUser(){
       let u = JSON.parse(this.urlBase64Decode(this.getToken().split('.')[1]));
