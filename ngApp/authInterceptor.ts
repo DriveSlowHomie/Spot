@@ -1,5 +1,5 @@
 namespace app {
-  angular.module('app').factory('AuthInterceptor', function($window){
+  angular.module('SpotApp').factory('AuthInterceptor', function($window){
     return {
       request: function(config) {
         config.header = config.header || {};

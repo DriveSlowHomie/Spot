@@ -15,7 +15,7 @@ namespace SpotApp.Controllers {
 
     public login(user){
             this.userService.login(this.user).then((res) => {
-            localStorage.setItem("id", res._id)
+            // localStorage.setItem("id", res._id)
             console.log(res);
             this.$state.go('MarkPage')
           })
@@ -41,7 +41,7 @@ namespace SpotApp.Controllers {
 
     public register(){
           this.userService.register(this.user).then((res) => {
-            localStorage.setItem("id", res._id)
+            // localStorage.setItem("id", res._id)
             console.log(res);
             this.$state.go('Home')
             this.$uibModalInstance.close();

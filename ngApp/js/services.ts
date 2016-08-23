@@ -40,15 +40,16 @@ namespace SpotApp.Services {
     }
 
     public register(user){
-      return this.RegisterResource.save(user).then((res) =>
-      {this.setToken(res.data['token']);
-       this.setUser()}).$promise;
+      return this.RegisterResource.save(user).$promise
+      // .then((res) =>
+      // {this.setToken(res.data['token']);
+      //  this.setUser()});
     }
 
     public login(user){
-      return this.LoginResource.save(user).then((res) =>
-      {this.setToken(res.data['token']);
-       this.setUser()}).$promise;
+      return this.LoginResource.save(user).$promise.then((res) =>
+      {this.setToken(res['token']);
+       this.setUser()});
     }
 
     public logout () {
