@@ -32,6 +32,16 @@ namespace SpotApp {
       templateUrl: '/templates/hitPage.html',
       controller: SpotApp.Controllers.HitPageController,
       controllerAs: 'vm'
+    }).state('UpdateSpot', {
+      url: '/updateSpot/:id',
+      templateUrl: '/templates/updateSpot.html',
+      controller: SpotApp.Controllers.MarkPageController,
+      controllerAs: 'vm'
+    }).state('DeleteSpot', {
+      url: '/deleteSpot/:id',
+      templateUrl: '/templates/deleteSpot.html',
+      controller: SpotApp.Controllers.MarkPageController,
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');

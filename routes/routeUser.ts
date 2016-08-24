@@ -58,6 +58,8 @@ router.post('/register', function(req, res, next) {
 //     }
 // )
 
+
+
 router.post('/login', (req, res, next ) => {
   console.log("this is before the if statement")
   if(!req.body.email || !req.body.password) return res.status(400).send("Please fill out every field");

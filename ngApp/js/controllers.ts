@@ -69,7 +69,9 @@ namespace SpotApp.Controllers {
     public discovered;
     public databaseLocation;
     public email;
-    
+    public id;
+
+
     public logout () {
       this.$window.localStorage.removeItem('token')
     }
@@ -84,13 +86,18 @@ namespace SpotApp.Controllers {
       //   this.$state.go('MarkPage')
       // });
 
-        let params = {
-          geolocation: this.center
-        };
+        // let params = {
+        //   geolocation: this.center
+        // };
 
         this.email = this.$window.localStorage.getItem('email');
+        console.log(`this is ${this.email}`)
+        this.id = this.$stateParams['id'];
+
+        console.log(`This is id: ${this.id}`)
 
         this.spot = {
+          _id: this.id,
           name: this.name,
           description: this.description,
           discovered: this.discovered,
@@ -101,10 +108,20 @@ namespace SpotApp.Controllers {
         console.log(this.spot)
 
         this.geolocationService.create(this.spot).then((res) => {});
+
+        this.$state.go("MarkPage");
     }
 
     public get() {
         this.databaseLocation = this.geolocationService.getAll()
+    }
+
+    public remove(){
+    this.id = this.$stateParams['id'];
+    console.log(`This is the id from controller: ${this.id}`)
+    this.geolocationService.remove(this.id).then(() => {
+      this.$state.go("MarkPage");
+    })
     }
 
     constructor(
@@ -112,6 +129,7 @@ namespace SpotApp.Controllers {
       private uiGmapIsReady,
       private geolocationService: SpotApp.Services.GeolocationService,
       private $state: ng.ui.IStateService,
+      private $stateParams: ng.ui.IStateParamsService,
       private $window: ng.IWindowService
     ) {
 

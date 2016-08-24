@@ -7,7 +7,7 @@ namespace SpotApp.Services {
 
     constructor(
       private $resource: ng.resource.IResourceService) {
-       this.GeolocationResource = $resource('/api/route/routeLocation')
+       this.GeolocationResource = $resource('/api/route/routeLocation/:id')
     }
 
     public create(spot) {
@@ -17,6 +17,11 @@ namespace SpotApp.Services {
 
     public getAll(){
       return this.GeolocationResource.query()
+    }
+
+    public remove(id){
+      console.log(`this is id ${id}`)
+      return this.GeolocationResource.remove({id:id}).$promise;
     }
   }
 
@@ -68,6 +73,10 @@ namespace SpotApp.Services {
 
     public setToken(token:string) {
       this.$window.localStorage.setItem('token', token)
+    }
+
+    public getEmail () {
+      return this.$window.localStorage.getItem('email')
     }
 
     public setEmail(email:string) {

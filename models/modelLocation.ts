@@ -10,7 +10,7 @@ let LocationSchema:any = new mongoose.Schema (
     description: String,
     discovered: String,
     longitude: Number,
-    latitude: { type: Number, default: 2},
+    latitude: Number,
     date_created: Date,
     date_deleted: {
       type: Date,
